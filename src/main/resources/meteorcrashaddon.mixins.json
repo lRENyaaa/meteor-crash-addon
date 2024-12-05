@@ -1,7 +1,7 @@
 {
   "required": true,
-  "package": "widecat.meteorcrashaddon.mixins",
-  "compatibilityLevel": "JAVA_16",
+  "package": "widecat.meteorcrashaddon.mixin",
+  "compatibilityLevel": "JAVA_21",
   "client": [
   ],
   "injectors": {
