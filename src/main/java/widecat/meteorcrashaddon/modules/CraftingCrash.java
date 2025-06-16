@@ -8,7 +8,7 @@ import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.client.gui.screen.recipebook.RecipeResultCollection;
 import net.minecraft.network.packet.c2s.play.CraftRequestC2SPacket;
-import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.RecipeDisplayEntry;
 import net.minecraft.screen.CraftingScreenHandler;
 import widecat.meteorcrashaddon.CrashAddon;
 
@@ -35,9 +35,9 @@ public class CraftingCrash extends Module {
         try {
             List<RecipeResultCollection> recipeResultCollectionList = mc.player.getRecipeBook().getOrderedResults();
             for (RecipeResultCollection recipeResultCollection : recipeResultCollectionList) {
-                for (RecipeEntry<?> recipe : recipeResultCollection.getRecipes(true)) {
+                for (RecipeDisplayEntry recipe : recipeResultCollection.getAllRecipes()) {
                     for (int i = 0; i < packets.get(); i++) {
-                        mc.getNetworkHandler().sendPacket(new CraftRequestC2SPacket(mc.player.currentScreenHandler.syncId, recipe, true));
+                        mc.getNetworkHandler().sendPacket(new CraftRequestC2SPacket(mc.player.currentScreenHandler.syncId, recipe.id(), true));
                     }
                 }
             }

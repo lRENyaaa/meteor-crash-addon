@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.10-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -21,7 +21,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Meteor
-    modImplementation "meteordevelopment:meteor-client:${project.meteor_version}-SNAPSHOT"
+    modImplementation "meteordevelopment:meteor-client:${project.minecraft_version}-SNAPSHOT"
 }
 
 processResources {

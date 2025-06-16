@@ -48,7 +48,7 @@ public class MovementCrash extends Module {
             for (int i = 0; i < packets.get(); i++) {
                 PlayerMoveC2SPacket.Full move_packet = new PlayerMoveC2SPacket.Full(current_pos.x + getDistributedRandom(1),
                     current_pos.y + getDistributedRandom(1), current_pos.z + getDistributedRandom(1),
-                    (float) rndD(90), (float) rndD(180), true);
+                    (float) rndD(90), (float) rndD(180), true, mc.player.horizontalCollision);
                 mc.getNetworkHandler().sendPacket(move_packet);
             }
         } catch (Exception ignored) {

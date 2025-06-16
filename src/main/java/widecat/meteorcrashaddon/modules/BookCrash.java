@@ -70,7 +70,7 @@ public class BookCrash extends Module {
                     pages.add(page.toString());
                 }
 
-                mc.getNetworkHandler().sendPacket(new BookUpdateC2SPacket(mc.player.getInventory().selectedSlot, pages, Optional.of(title)));
+                mc.getNetworkHandler().sendPacket(new BookUpdateC2SPacket(mc.player.getInventory().getSelectedSlot(), pages, Optional.of(title)));
             }
             case Creative -> {
                 for (int i = 0; i < 5; i++) {

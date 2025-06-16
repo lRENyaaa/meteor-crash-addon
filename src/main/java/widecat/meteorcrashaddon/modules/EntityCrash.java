@@ -78,7 +78,7 @@ public class EntityCrash extends Module {
                 for (int i = 0; i < amount.get(); i++) {
                     Vec3d v = vehicle.getPos();
                     vehicle.setPos(v.x, v.y + speed.get(), v.z);
-                    mc.getNetworkHandler().sendPacket(new VehicleMoveC2SPacket(vehicle));
+                    mc.getNetworkHandler().sendPacket(VehicleMoveC2SPacket.fromVehicle(vehicle));
                 }
             }
             case Position -> {
@@ -86,7 +86,7 @@ public class EntityCrash extends Module {
                 Vec3d end = new Vec3d(start.getX() + .5, start.getY() + 1, start.getZ() + .5);
                 vehicle.updatePosition(end.x, end.y - 1, end.z);
                 for (int i = 0; i < amount.get(); i++) {
-                    mc.getNetworkHandler().sendPacket(new VehicleMoveC2SPacket(vehicle));
+                    mc.getNetworkHandler().sendPacket(VehicleMoveC2SPacket.fromVehicle(vehicle));
                 }
             }
         }

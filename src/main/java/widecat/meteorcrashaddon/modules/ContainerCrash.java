@@ -14,8 +14,8 @@ import meteordevelopment.orbit.EventHandler;
 import net.minecraft.block.AbstractChestBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.ShulkerBoxBlock;
-import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -75,7 +75,7 @@ public class ContainerCrash extends Module {
     @EventHandler
     private void onScreenOpen(OpenScreenEvent event) {
         if (event.screen == null) return;
-        if (!mc.isPaused() && !(event.screen instanceof AbstractInventoryScreen) && (event.screen instanceof HandledScreen)) event.setCancelled(true);
+        if (!mc.isPaused() && !(event.screen instanceof InventoryScreen) && (event.screen instanceof HandledScreen)) event.setCancelled(true);
     }
 
     @EventHandler

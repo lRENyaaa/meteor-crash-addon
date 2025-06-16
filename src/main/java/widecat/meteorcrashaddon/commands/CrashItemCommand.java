@@ -12,9 +12,6 @@ import net.minecraft.nbt.NbtDouble;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.network.packet.c2s.play.CreativeInventoryActionC2SPacket;
 
-import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
-import static meteordevelopment.meteorclient.MeteorClient.mc;
-
 public class CrashItemCommand extends Command {
 
     public CrashItemCommand() {
@@ -33,7 +30,7 @@ public class CrashItemCommand extends Command {
             tag1.putString("id", "minecraft:small_fireball");
             tag1.put("power", power);
             CrashFireball.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(tag1));
-            CreativeInventoryActionC2SPacket balls = new CreativeInventoryActionC2SPacket(36 + mc.player.getInventory().selectedSlot, CrashFireball);
+            CreativeInventoryActionC2SPacket balls = new CreativeInventoryActionC2SPacket(36 + mc.player.getInventory().getSelectedSlot(), CrashFireball);
             mc.getNetworkHandler().sendPacket(balls);
             return SINGLE_SUCCESS;
         }));
@@ -49,7 +46,7 @@ public class CrashItemCommand extends Command {
             tag2.putString("id", "minecraft:small_fireball");
             tag2.put("Pos", pos);
             gato.set(DataComponentTypes.ENTITY_DATA, NbtComponent.of(tag2));
-            CreativeInventoryActionC2SPacket elgato = new CreativeInventoryActionC2SPacket(36 + mc.player.getInventory().selectedSlot, gato);
+            CreativeInventoryActionC2SPacket elgato = new CreativeInventoryActionC2SPacket(36 + mc.player.getInventory().getSelectedSlot(), gato);
             mc.getNetworkHandler().sendPacket(elgato);
             return SINGLE_SUCCESS;
         }));
